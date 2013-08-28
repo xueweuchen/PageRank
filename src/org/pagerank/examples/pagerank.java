@@ -12,24 +12,24 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
 public class pagerank {	
-    public static void main(String[] args) throws Exception {
-    	int ret = 0;
-    	long pre = (System.currentTimeMillis());
-    	ret = initial();
-    	long post = (System.currentTimeMillis());
-    	System.out.println("Time: " + (post - pre));
-    	for(int i = 0;i < Constant.Itr;i++){
-        	pre = (System.currentTimeMillis());
-    		ret = pagerankcalc();
-        	post = (System.currentTimeMillis());
-        	System.out.println("Time: " + (post - pre));
-    	}
-    	pre = (System.currentTimeMillis());
-    	ret = sort();
-    	post = (System.currentTimeMillis());
-    	System.out.println("Time: " + (post - pre));
-    	System.exit(ret);
-    }
+	public static void main(String[] args) throws Exception {
+		int ret = 0;
+		long pre = (System.currentTimeMillis());
+		ret = initial();
+		long post = (System.currentTimeMillis());
+		System.out.println("Time: " + (post - pre));
+		for(int i = 0;i < Constant.Itr;i++){
+		pre = (System.currentTimeMillis());
+			ret = pagerankcalc();
+			post = (System.currentTimeMillis());
+			System.out.println("Time: " + (post - pre));
+		}
+		pre = (System.currentTimeMillis());
+		ret = sort();
+		post = (System.currentTimeMillis());
+		System.out.println("Time: " + (post - pre));
+		System.exit(ret);
+	}
     
 	public static int initial() throws Exception{
 		Configuration conf = new Configuration();
