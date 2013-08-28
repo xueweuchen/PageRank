@@ -108,18 +108,18 @@ public class pagerank {
 	}
 	public static int sort() throws Exception{
 		Configuration conf = new Configuration();
-	    //conf.set("mapred.job.tracker", "59.78.43.167:54311");
-	    String[] otherArgs = {"/user/graph-in","/user/graph-out"};
+		//conf.set("mapred.job.tracker", "59.78.43.167:54311");
+		String[] otherArgs = {"/user/graph-in","/user/graph-out"};
 
-	    Job job = new Job(conf, "Page Rank Sort");
-	    job.setJarByClass(pagerank.class);
-	    job.setMapperClass(PageRankSortMapper.class);
-	    job.setMapOutputKeyClass(FloatWritable.class);
-	    job.setMapOutputValueClass(Text.class);
-	    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-	    int ret = (job.waitForCompletion(true) ? 0 : 1);
-	    return ret;
+		Job job = new Job(conf, "Page Rank Sort");
+		job.setJarByClass(pagerank.class);
+		job.setMapperClass(PageRankSortMapper.class);
+		job.setMapOutputKeyClass(FloatWritable.class);
+		job.setMapOutputValueClass(Text.class);
+		FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+		FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+		int ret = (job.waitForCompletion(true) ? 0 : 1);
+		return ret;
 	}
 }
 
